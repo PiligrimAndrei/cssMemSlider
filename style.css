@@ -1,8 +1,8 @@
 #slider {
    margin: 0 auto;
    padding: 10px;
-   width: 800px;
-   background-color: darkgray;
+   width: 50%;
+   background-color: black;
    max-width: 100%;
    text-align: center;
 }
@@ -50,7 +50,7 @@
    transition: margin-left 1s ease;
    width: 400%;
    line-height: 0;
-   height: 300px;
+   height: 20rem;
 }
 
 #slides .slide {
@@ -61,6 +61,13 @@
    align-items: center;
    float: left;
    color: #fff
+}
+
+.slide-content img {
+   object-fit: cover;
+   width: 100%;
+   height: auto;
+
 }
 
 #slides .slide-1 {
@@ -79,30 +86,78 @@
    background-color: coral;
 }
 
+.slides-title {
+   width: 70%;
+
+}
+
+#slider-footer {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+}
+
+#overflow-footer {
+   width: 100%;
+   overflow: hidden;
+}
+
+.inner-footer {
+   transition: margin-left 0.1s ease;
+   width: 400%;
+   line-height: 0;
+   height: auto;
+}
+
+#slider-footer .slide-footer {
+   display: flex;
+   height: 100%;
+   width: 25%;
+   justify-content: flex-start;
+   align-items: center;
+   float: left;
+   color: #fff
+}
+
+#slide1:checked~#slider-footer .slides-title .inner-footer {
+   margin-left: 0;
+}
+
+#slide2:checked~#slider-footer .slides-title .inner-footer {
+   margin-left: -100%;
+}
+
+#slide3:checked~#slider-footer .slides-title .inner-footer {
+   margin-left: -200%;
+}
+
+#slide4:checked~#slider-footer .slides-title .inner-footer {
+   margin-left: -300%;
+}
 
 #bullets {
-   margin: 10px 0 0;
+   justify-self: flex-end;
+   margin: 0.5rem 0 0;
    text-align: center;
 }
 
 #bullets label {
    display: inline-block;
-   width: 15px;
-   height: 15px;
+   width: 1rem;
+   height: 1rem;
    background: #ccc;
-   margin: 0 10px;
+   margin: 0.5rem;
    border-radius: 100%;
+   align-self: flex-end;
 }
 
 #bullets label:hover {
    background: white;
 }
 
-
-
-#slide1:checked~#bullets label:nth-child(1),
-#slide2:checked~#bullets label:nth-child(2),
-#slide3:checked~#bullets label:nth-child(3),
-#slide4:checked~#bullets label:nth-child(4) {
+#slide1:checked~#slider-footer #bullets label:nth-child(1),
+#slide2:checked~#slider-footer #bullets label:nth-child(2),
+#slide3:checked~#slider-footer #bullets label:nth-child(3),
+#slide4:checked~#slider-footer #bullets label:nth-child(4) {
    background-color: green;
 }
