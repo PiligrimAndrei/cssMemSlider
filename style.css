@@ -1,10 +1,11 @@
 #slider {
    margin: 0 auto;
    padding: 10px;
-   width: 50%;
+   width: 40%;
    background-color: black;
-   max-width: 100%;
+   min-width: 25rem;
    text-align: center;
+   max-height: 25rem;
 }
 
 #slider input[type=radio] {
@@ -22,7 +23,7 @@
    background: #fff;
    position: relative;
    z-index: 1;
-   /*height: 300px;*/
+   min-height: 20rem;
 }
 
 #overflow {
@@ -63,10 +64,15 @@
    color: #fff
 }
 
+.slide-content {
+   width: 100%;
+   height: 20rem;
+}
+
 .slide-content img {
    object-fit: cover;
-   width: 100%;
-   height: auto;
+   max-width: 100%;
+   min-height: 20rem;
 
 }
 
@@ -136,28 +142,41 @@
 }
 
 #bullets {
+   display: flex;
+   flex-direction: row;
    justify-self: flex-end;
    margin: 0.5rem 0 0;
    text-align: center;
 }
 
 #bullets label {
-   display: inline-block;
+   margin: 0.2rem;
+   width: 1.5rem;
+   height: 1.5rem;
+   background: transparent;
+}
+
+.bullet {
+   display: block;
    width: 1rem;
    height: 1rem;
    background: #ccc;
-   margin: 0.5rem;
-   border-radius: 100%;
-   align-self: flex-end;
+   border-radius: 50%;
 }
 
-#bullets label:hover {
+#bullets .bullets-label:hover {
+   cursor: pointer;
+}
+
+#bullets .bullets-label:hover .bullet,
+#bullets .bullets-label:focus .bullet {
+   cursor: pointer;
    background: white;
 }
 
-#slide1:checked~#slider-footer #bullets label:nth-child(1),
-#slide2:checked~#slider-footer #bullets label:nth-child(2),
-#slide3:checked~#slider-footer #bullets label:nth-child(3),
-#slide4:checked~#slider-footer #bullets label:nth-child(4) {
+#slide1:checked~#slider-footer #bullets .bullets-label:nth-child(1) .bullet,
+#slide3:checked~#slider-footer #bullets .bullets-label:nth-child(3) .bullet,
+#slide2:checked~#slider-footer #bullets .bullets-label:nth-child(2) .bullet,
+#slide4:checked~#slider-footer #bullets .bullets-label:nth-child(4) .bullet {
    background-color: green;
 }
